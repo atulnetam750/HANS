@@ -1,69 +1,127 @@
 # HANS — AI Automation Assistant
 
-HANS is an early-stage personal AI assistant project focused on natural-language interaction, automation, voice commands, and integrations with external services and workflow tools such as n8n.
+> A practical, Hindi-friendly foundation for AI assistance, automation, voice interaction, and API workflows.
 
-## Vision
+## What is HANS?
 
-Build a practical assistant that can understand user commands, perform useful digital tasks, and connect AI capabilities with repeatable automation workflows.
+HANS is an early-stage personal AI assistant project designed to connect natural-language commands with useful digital tools and repeatable automation. The project is being developed incrementally with a lightweight Python core.
 
-## Planned capabilities
+## Current features
 
-- Natural-language command handling
-- Optional voice input and text-to-speech
-- AI-powered task assistance
-- n8n workflow integration
-- API and webhook integrations
-- Modular tools and skills
-- Logging and configuration
-- Future support for Hindi and other Indian-language interactions
+- Interactive command-line assistant
+- Hindi-friendly commands and responses
+- Built-in help, date, time, and status commands
+- Environment-based configuration
+- Optional n8n webhook integration
+- Optional Hindi text-to-speech scaffold
+- Basic automated tests
+- Secret-safe `.env.example` and `.gitignore`
 
-## Project status
-
-**Early development / experimental.**
-
-This repository is being built incrementally. Features will be added and documented as they become functional.
-
-## Proposed architecture
+## Architecture
 
 ```text
 User
   ↓
-Interface (CLI / Voice / Web)
+CLI / Voice / Future Web UI
   ↓
 Command Router
   ↓
-AI Reasoning Layer
-  ↓
-Tools & Skills
-  ├── n8n / Webhooks
-  ├── APIs
-  ├── File & System Tasks
-  └── Future integrations
+HANS Core
+  ├── Local Commands
+  ├── AI Provider (planned)
+  └── Tools / Skills
+        ├── n8n Webhooks
+        ├── APIs
+        ├── Voice
+        └── Future News/Content Workflows
 ```
 
-## Getting started
+## Repository structure
 
-The initial repository contains a minimal Python foundation. Install the dependencies from `requirements.txt`, copy `.env.example` to `.env`, add your own credentials, and run `python main.py`.
+```text
+HANS/
+├── main.py
+├── hans/
+│   ├── __init__.py
+│   ├── n8n.py
+│   └── voice.py
+├── tests/
+│   └── test_core.py
+├── .env.example
+├── .gitignore
+├── requirements.txt
+├── LICENSE
+└── README.md
+```
 
-Never commit API keys, passwords, tokens, or private personal data.
+## Quick start
+
+```bash
+git clone https://github.com/atulnetam750/HANS.git
+cd HANS
+python -m venv .venv
+```
+
+Activate the environment, then install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run HANS:
+
+```bash
+python main.py
+```
+
+Try:
+
+```text
+help
+time
+date
+status
+नमस्ते
+exit
+```
+
+## Environment configuration
+
+Copy `.env.example` to `.env` for local configuration. Never commit real API keys, passwords, tokens, or private data.
+
+## n8n integration
+
+The `hans.n8n` module provides a small JSON webhook helper. Set `N8N_WEBHOOK_URL` in your local environment and use the helper from your own workflow or application code.
+
+## Voice
+
+`hans.voice` provides an optional text-to-speech scaffold using gTTS. Voice input and full conversational speech interaction are planned features.
 
 ## Roadmap
 
-- [ ] Core assistant loop
-- [ ] Config and environment management
+- [x] Initial CLI foundation
+- [x] Hindi-friendly command handling
+- [x] n8n webhook helper
+- [x] Optional voice/TTS scaffold
+- [x] Basic tests
 - [ ] AI provider abstraction
-- [ ] Tool/plugin system
-- [ ] n8n webhook integration
-- [ ] Voice input/output
-- [ ] Hindi command support
-- [ ] Web interface
-- [ ] Automated tests
-- [ ] Detailed developer documentation
+- [ ] Tool/plugin registry
+- [ ] Speech-to-text input
+- [ ] Full Hindi voice assistant
+- [ ] Web dashboard
+- [ ] News/content automation workflows
+- [ ] Authentication and permissions
+- [ ] Docker deployment
+- [ ] CI/CD and release automation
 
-## Open-source note
+## Project philosophy
 
-HANS is intended to become a reusable open-source project. Current usage, downloads, contributors, and community impact are intentionally not claimed until they actually exist.
+HANS is intended to be useful, modular, transparent, and easy to extend. Features should be added as real working functionality rather than simulated usage or inflated project metrics.
+
+## Open-source status
+
+This is an early development project. Public usage, downloads, contributors, and community impact are not claimed until they actually exist.
 
 ## License
 
-MIT License — see `LICENSE`.
+MIT License. See [LICENSE](LICENSE).
