@@ -1,7 +1,7 @@
 # HANS core has no mandatory third-party dependencies.
 # Optional integrations:
 requests>=2.32,<3
-python-dotenv>=1.0,<2
+python-dotenv>=1.2.4,<2
 
 # Optional voice support:
 # SpeechRecognition>=3.10,<4
